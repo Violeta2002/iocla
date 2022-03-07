@@ -2,22 +2,33 @@
 
 void rotate_left(int *number, int bits)
 {
-	/* TODO */
-	(void) number;
-	(void) bits;
+	while(bits) {
+		*number <<= 1;
+		bits--;
+	}
 }
 
 void rotate_right(int *number, int bits)
 {
-	/* TODO */
-	(void) number;
-	(void) bits;
+	while(bits) {
+		*number >>= 1;
+		bits--;
+	}
 }
 
 int main()
 {
-	/* TODO: Test functions */
+	int number;
+	int bits;
+	scanf("%d", &number);
+	scanf("%d", &bits);
 
-	return 0;
+	rotate_left(&number, bits);
+	printf("%d\n", number);
+
+	rotate_right(&number, bits);
+	printf("%d\n", number);
+	
+	return 0; 
 }
 
