@@ -1,2 +1,2 @@
-PROGNAME := crackme
+PROGNAME := inspect
 include ../../utils/Makefile.generic

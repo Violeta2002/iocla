@@ -1,2 +1,2 @@
-PROGNAME := crackme
+PROGNAME := delete-first
 include ../../utils/Makefile.generic

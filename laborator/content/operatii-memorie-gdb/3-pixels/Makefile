@@ -1,2 +1,2 @@
-PROGNAME := crackme
+PROGNAME := pixels
 include ../../utils/Makefile.generic

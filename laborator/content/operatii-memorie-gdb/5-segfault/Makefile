@@ -1,2 +1,3 @@
-PROGNAME := crackme
+PROGNAME := segfault
 include ../../utils/Makefile.generic
+

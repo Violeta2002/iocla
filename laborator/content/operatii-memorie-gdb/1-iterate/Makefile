@@ -1,2 +1,2 @@
-PROGNAME := crackme
+PROGNAME := iterate
 include ../../utils/Makefile.generic
