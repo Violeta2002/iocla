@@ -11,6 +11,19 @@ main:
     mov ebx, 1      ; stores the current power
 
     ; TODO - print the powers of 2 that generate number stored in EAX
+    mov ecx, 1
+    mov esi, 1
 
+start:
+    test eax, ecx
+    jz next
+    PRINTF32 `%d\n\x0`, ecx
+next:
+    shl ecx, 1
+    inc esi
+    cmp esi, 32
+    jne start
+
+out:
     leave
     ret
