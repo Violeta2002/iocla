@@ -2,7 +2,7 @@
 
 section .data
     mystring db "This is my string", 0
-
+    mylength db "String length is %d", 10, 0
 section .text
 
 extern puts
@@ -18,13 +18,15 @@ main:
 test_one_byte:
     mov bl, byte [eax]
     test bl, bl
-    je out
-    inc eax
-    inc ecx
-    jmp test_one_byte
+    jne test_one_byte
+    dec ecx
+    push ecx
+    push mylength
+    call printf
+    add esp, 8
 
-out:
-    PRINTF32 `[PRINTF32]: %d\n[printf]: \x0`, ecx
+;out:
+    ;PRINTF32 `[PRINTF32]: %d\n[printf]: \x0`, ecx
 
     leave
     ret
