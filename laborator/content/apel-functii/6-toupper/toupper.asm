@@ -12,8 +12,20 @@ toupper:
     push ebp
     mov ebp, esp
 
-    ; TODO
+    mov eax, [ebp + 8]
+    xor ecx, ecx
 
+loop:
+    xor ebx, ebx
+    mov bl, byte[eax + ecx]
+    cmp bl, 0
+    je exit
+    sub bl, 32
+    mov byte [eax + ecx], bl
+    add ecx, 1
+    jmp loop
+
+exit:
     leave
     ret
 
@@ -34,6 +46,7 @@ main:
     push after_format
     call printf
     add esp, 8
+
 
     leave
     ret
