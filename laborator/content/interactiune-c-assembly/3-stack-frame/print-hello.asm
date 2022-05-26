@@ -11,6 +11,7 @@ global print_hello
 print_hello:
 	push ebp
 
+	mov ebp, esp
 	push message
 	call printf
 	add esp, 4
