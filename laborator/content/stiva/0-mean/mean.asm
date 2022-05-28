@@ -18,14 +18,32 @@ main:
     mov ecx, ARRAY_SIZE
 
     ; TODO1 - compute the sum of the vector numbers - store it in eax
+ sub ecx, 1
 
+sum:
+    cmp ecx, 0
+    jl suma
+    add ax, word[num_array + ecx * 2]
+    sub ecx, 1
+    jmp sum
+
+suma:
     PRINTF32 `Sum of numbers: %d\n\x0`, eax
 
     ; TODO2 - compute the quotient of the mean
+ xor edx, edx
 
+    mov ebx, eax
+    mov ax, bx
+    shr ebx, 16
+    mov dx, bx
+    mov cx, ARRAY_SIZE
+    div cx
     PRINTF32 `Mean of numbers: %d\x0`, eax
     PRINTF32 `.\x0`
 
+    xor eax, eax
+    ret
     mov ecx, DECIMAL_PLACES
 compute_decimal_place:
 
