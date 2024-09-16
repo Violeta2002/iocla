@@ -13,6 +13,7 @@ hello: hello.o start.o puts.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 hello.o: hello.c
+	gcc $(CFLAGS) -c hello.c -o hello.o
 
 start.o: start.asm
 	$(AS) $(ASFLAGS) -o $@ $<

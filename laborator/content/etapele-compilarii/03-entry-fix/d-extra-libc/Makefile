@@ -13,6 +13,7 @@ hello: hello.o start.o
 	ld -static -m elf_i386 -L/usr/lib/gcc/x86_64-linux-gnu/7/32/ -o $@ $^ /usr/lib32/crti.o --start-group -lc -lgcc -lgcc_eh --end-group /usr/lib32/crtn.o
 
 hello.o: hello.c
+	gcc $(CFLAGS) -c hello.c -o hello.o
 
 start.o: start.asm
 	$(AS) $(ASFLAGS) -o $@ $<
